@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Small Dots</string>
+
+
+    -
+    <string-array name="privacy_level">
+
+        <item>Friends</item>
+
+        <item>Only Me</item>
+
+        <item>Public</item>
+
+    </string-array>
+
+</resources>
