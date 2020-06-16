@@ -2,6 +2,7 @@ package com.example.smalldots.rest.services;
 
 import com.example.smalldots.Activities.LoginActivity;
 import com.example.smalldots.Activities.profileActivity;
+import com.example.smalldots.model.FriendsModel;
 import com.example.smalldots.model.User;
 
 import java.util.List;
@@ -38,6 +39,9 @@ public interface UserInterface {
 //    Call<FriendsModel> loadFriendsData(@QueryMap Map<String, String> params);
 //
 //
+
+    @GET("loadfriends")
+    Call<FriendsModel> loadFriendsData(@QueryMap Map<String, String> params);
     @POST("performaction")
     Call<Integer> performAction(@Body profileActivity.PerformAction performAction);
 }

@@ -57,10 +57,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         setFragments(newsFeedFragment);
-        bottomNavigation.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
-                //Toast.makeText(MainActivity.this, "yes it is", Toast.LENGTH_SHORT).show();
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
 
                     case R.id.newsfeed_fragment:
@@ -76,13 +75,13 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.profile_notification:
-                       // Toast.makeText(MainActivity.this, "yes it is", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(MainActivity.this, "yes it is", Toast.LENGTH_SHORT).show();
                         setFragments(notificationFragment);
                         break;
 
 
                 }
-
+                return false;
             }
         });
         fab.setOnClickListener(new View.OnClickListener() {

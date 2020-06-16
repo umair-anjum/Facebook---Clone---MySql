@@ -187,6 +187,54 @@ public class profileActivity extends AppCompatActivity implements DialogInterfac
                         }
                     });
                     builder.show();
+                } else if (current_state == 2) {
+
+                    CharSequence options[] = {"Cancel Friend Request"};
+                    AlertDialog.Builder builder = new AlertDialog.Builder(profileActivity.this);
+                    builder.setOnDismissListener(profileActivity.this);
+                    builder.setItems(options, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int position) {
+
+                            if (position == 0) {
+                                performAction(current_state);
+                                profile_btn.setText("Processing ....");
+                            }
+                        }
+                    });
+                    builder.show();
+
+                } else if (current_state == 3) {
+                    CharSequence options[] = {"Accept Friend Request"};
+                    AlertDialog.Builder builder = new AlertDialog.Builder(profileActivity.this);
+                    builder.setOnDismissListener(profileActivity.this);
+                    builder.setItems(options, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int position) {
+
+                            if (position == 0) {
+                                performAction(current_state);
+                                profile_btn.setText("Processing ....");
+                            }
+                        }
+                    });
+                    builder.show();
+
+                } else if(current_state == 1){
+                    CharSequence options[] = {"UnFriend User"};
+                    AlertDialog.Builder builder = new AlertDialog.Builder(profileActivity.this);
+                    builder.setOnDismissListener(profileActivity.this);
+                    builder.setItems(options, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int position) {
+
+                            if (position == 0) {
+                                performAction(current_state);
+                                profile_btn.setText("Processing ....");
+                            }
+                        }
+                    });
+                    builder.show();
                 }
             }
         });
@@ -207,7 +255,19 @@ public class profileActivity extends AppCompatActivity implements DialogInterfac
                         current_state = 2;
                         profile_btn.setText("Request Sent");
                         Toast.makeText(profileActivity.this, "request Send", Toast.LENGTH_SHORT).show();
+                    } else if (i == 2) {
+                        current_state = 4;
+                        profile_btn.setText("Send Request");
+                        Toast.makeText(profileActivity.this, "Request Cancelled", Toast.LENGTH_SHORT).show();
+                    }else if( i == 3){
+                        current_state = 1;
+                        profile_btn.setText("Friends");
+                        Toast.makeText(profileActivity.this, "You are friends", Toast.LENGTH_SHORT).show();
+                    } else if(i == 1){
+                        current_state = 4;
+                        profile_btn.setText("Send Request");
                     }
+
                 } else {
                     profile_btn.setEnabled(false);
                     profile_btn.setText("Error...");
@@ -478,7 +538,7 @@ public class profileActivity extends AppCompatActivity implements DialogInterfac
 
     }
 
-    public class PerformAction {
+    public static class PerformAction {
         String operationType, userId, profileId;
 
         public PerformAction(String operationType, String userId, String profileId) {
