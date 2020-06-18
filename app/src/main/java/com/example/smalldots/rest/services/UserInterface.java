@@ -3,6 +3,7 @@ package com.example.smalldots.rest.services;
 import com.example.smalldots.Activities.LoginActivity;
 import com.example.smalldots.Activities.profileActivity;
 import com.example.smalldots.model.FriendsModel;
+import com.example.smalldots.model.PostModel;
 import com.example.smalldots.model.User;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public interface UserInterface {
     Call<Integer> singin(@Body LoginActivity.UserInfo userInfo);
 
     @GET("loadownprofile")
-    Call<User> loadownprofile(@QueryMap Map<String,String> params);
+    Call<User> loadownprofile(@QueryMap Map<String, String> params);
 
     @POST("poststatus")
     Call<Integer> uploadStatus(@Body MultipartBody requestBody);
@@ -35,13 +36,20 @@ public interface UserInterface {
     @GET("loadotherprofile")
     Call<User> loadOtherProfile(@QueryMap Map<String, String> params);
 
-//    @GET("loadfriends")
+    //    @GET("loadfriends")
 //    Call<FriendsModel> loadFriendsData(@QueryMap Map<String, String> params);
 //
 //
+    @GET("profiletimeline")
+    Call<List<PostModel>> getProfilePosts(@QueryMap Map<String, String> params);
+
+    @GET("gettimelinepost")
+    Call<List<PostModel>> getTimeline(@QueryMap Map<String, String> params);
+
 
     @GET("loadfriends")
     Call<FriendsModel> loadFriendsData(@QueryMap Map<String, String> params);
+
     @POST("performaction")
     Call<Integer> performAction(@Body profileActivity.PerformAction performAction);
 }

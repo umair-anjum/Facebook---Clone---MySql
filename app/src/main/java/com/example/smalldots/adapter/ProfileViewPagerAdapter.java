@@ -1,5 +1,7 @@
 package com.example.smalldots.adapter;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -9,29 +11,29 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.example.smalldots.Fragments.ProfileFragment;
 
 public class ProfileViewPagerAdapter extends FragmentPagerAdapter {
-
-    int size=0;
-
-    public ProfileViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
-        super(fm, behavior);
-        this.size=behavior;
+    int size = 0;
+    String uid="0";
+    String current_state="0";
+    public ProfileViewPagerAdapter(FragmentManager fm, int size ,String uid , String current_state) {
+        super(fm);
+        this.size = size;
+        this.uid =uid;
+        this.current_state =current_state;
     }
 
-
-    @NonNull
     @Override
     public Fragment getItem(int position) {
-
-        switch (position){
+        switch (position) {
             case 0:
-                return new ProfileFragment();
-
+                ProfileFragment profileFragment = new ProfileFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("uid",uid);
+                bundle.putString("current_state",current_state);
+                profileFragment.setArguments(bundle);
+                return profileFragment;
             default:
                 return null;
-
         }
-
-
     }
 
     @Override
@@ -42,8 +44,7 @@ public class ProfileViewPagerAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-
-        switch (position){
+        switch (position) {
             case 0:
                 return "Posts";
             default:

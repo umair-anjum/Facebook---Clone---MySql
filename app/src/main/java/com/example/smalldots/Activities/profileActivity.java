@@ -106,7 +106,7 @@ public class profileActivity extends AppCompatActivity implements DialogInterfac
         progressDialog.show();
 
         // ButterKnife.bind(this);
-        profileViewPagerAdapter = new ProfileViewPagerAdapter(getSupportFragmentManager(), 1);
+
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.arrow_back_white);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -115,7 +115,8 @@ public class profileActivity extends AppCompatActivity implements DialogInterfac
                 startActivity(new Intent(profileActivity.this, MainActivity.class));
             }
         });
-        viewPager.setAdapter(profileViewPagerAdapter);
+
+
   /*
 
     0 = profile is still loading
@@ -328,6 +329,9 @@ public class profileActivity extends AppCompatActivity implements DialogInterfac
     }
 
     private void showUserData(User user) {
+        profileViewPagerAdapter = new ProfileViewPagerAdapter(getSupportFragmentManager(), 1,user.getUid(),user.getState());
+        viewPager.setAdapter(profileViewPagerAdapter);
+
         profileURL = user.getProfileURL();
         coverURL = user.getCoverURL();
         collapsingToolbarLayout.setTitle(user.getName());
