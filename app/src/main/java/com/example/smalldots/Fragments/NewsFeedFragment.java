@@ -98,7 +98,7 @@ public class NewsFeedFragment extends Fragment {
     }
 
     private void loadTimeline() {
-        Toast.makeText(context, "this ", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(context, "this ", Toast.LENGTH_SHORT).show();
         UserInterface userInterface = ApiClient.getApiClient().create(UserInterface.class);
         Map<String, String> parms = new HashMap<String, String>();
 

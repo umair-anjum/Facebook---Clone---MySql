@@ -102,7 +102,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             public void onClick(View view) {
                 Intent intent = new Intent(context, FullPostActivity.class);
                 Bundle bundle = new Bundle();
-                // bundle.putParcelable("postModel", Parcels.wrap(postModel));
                 intent.putExtra("postBundle", bundle);
                 context.startActivity(intent);
             }
