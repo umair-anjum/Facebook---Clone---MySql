@@ -61,6 +61,9 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.5.2'
 
 
+    // Parcels
+    implementation 'org.parceler:parceler-api:1.1.12'
+    annotationProcessor 'org.parceler:parceler:1.1.12'
     //for adding zooming to imageveiw
     implementation 'com.github.chrisbanes:PhotoView:2.1.3'
 

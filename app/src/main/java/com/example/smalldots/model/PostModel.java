@@ -2,6 +2,9 @@ package com.example.smalldots.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class PostModel {
 
     @SerializedName("postId")
@@ -24,7 +27,7 @@ public class PostModel {
     private String likeCount;
     @SerializedName("commentCount")
     @Expose
-    private Object commentCount;
+    private String commentCount;
     @SerializedName("hasComment")
     @Expose
     private String hasComment;
@@ -89,11 +92,11 @@ public class PostModel {
         this.likeCount = likeCount;
     }
 
-    public Object getCommentCount() {
+    public String getCommentCount() {
         return commentCount;
     }
 
-    public void setCommentCount(Object commentCount) {
+    public void setCommentCount(String commentCount) {
         this.commentCount = commentCount;
     }
 

@@ -15,6 +15,7 @@
         <activity android:name=".Activities.ViewImage" />
         <activity android:name=".Activities.UploadActivity" />
         <activity android:name=".Activities.profileActivity" />
+        <activity android:name=".Activities.FullPostActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

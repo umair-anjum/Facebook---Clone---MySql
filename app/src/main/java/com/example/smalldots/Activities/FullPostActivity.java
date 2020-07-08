@@ -8,8 +8,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import com.example.smalldots.R;
 import com.example.smalldots.model.PostModel;
@@ -17,6 +18,9 @@ import com.example.smalldots.rest.ApiClient;
 import com.example.smalldots.utils.AgoDateParse;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
+
 import java.text.ParseException;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -68,7 +72,7 @@ public class FullPostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_post);
         ButterKnife.bind(this);
-       // postModel = Parcels.unwrap(getIntent().getBundleExtra("postBundle").getParcelable("postModel"));
+        postModel = Parcels.unwrap(getIntent().getBundleExtra("postBundle").getParcelable("postModel"));
         if(postModel==null){
             Toast.makeText(FullPostActivity.this,"Something went wrong !",Toast.LENGTH_SHORT).show();
             onBackPressed();
@@ -76,7 +80,7 @@ public class FullPostActivity extends AppCompatActivity {
         }
 
         // Setting the tool with back button
-      //  setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
         setTitle("");;
         toolbar.setNavigationIcon(R.drawable.arrow_back_white);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
